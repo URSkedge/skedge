@@ -26,8 +26,8 @@ class SearchController < ApplicationController
       begin
         sk_query = Course.sk_query(@query)
         @course_groups = sk_query.group_by(&:yr_term)
-        if @course_groups.any? and !@course_groups[20171] and !sk_query.where_values_hash["term"]
-          @course_groups[20171] = {groupName: "Fall 2016", text: "No courses found for Fall 2016."}
+        if @course_groups.any? and !@course_groups[20192] and !sk_query.where_values_hash["term"]
+          @course_groups[20192] = {groupName: "Fall 2016", text: "No courses found for Fall 2016."}
         end
       rescue Course::QueryingException => e
         @search_error = e.message
